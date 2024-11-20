@@ -1,5 +1,5 @@
 import { Router} from 'express';
-import adoptionsController from '../controllers/adoptions.controller.js';
+import adoptionsController from '../controllers/Adoptions.controller.js';
 
 const router = Router();
 

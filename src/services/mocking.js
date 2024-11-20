@@ -2,28 +2,29 @@ import { faker } from "@faker-js/faker";
 import { createHash } from "../utils/index.js";
 
 class MockingService {
-    async generateMockingUsers(num){
-        const users =[]; 
-         
+   static async generateMockingUsers(num){
+        const users = []; 
+    
         for (let i = 0; i < num; i++) {
             users.push({
-                firs_name: faker.person.firstName(),
+                first_name: faker.person.firstName(),
                 last_name: faker.person.lastName(),
-                email: faker.person.email(),
+                email: faker.internet.email(),
                 password: await createHash("coder123"),
                 role: faker.helpers.arrayElement(["user", "admin"]),
                 pets: []
             })
         }
+        console.log(users);
         return users;
     }
     
-    async generateMockingPets(num){
+   static async generateMockingPets(num){
         const pets = [];
 
         for (let i = 0; i < num; i++) {
             pets.push({
-                name: faker.name.animal.dog(),
+                name: faker.animal.dog(),
                 specie: faker.animal.type(),
                 adopted: false,
                 birthDate: faker.date.past(),
